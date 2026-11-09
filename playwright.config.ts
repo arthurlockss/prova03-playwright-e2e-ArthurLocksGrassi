@@ -6,13 +6,15 @@ const config: PlaywrightTestConfig = {
   retries: 0,
   use: {
     trace: 'on',
-    channel: 'msedge',
+    channel: process.env.BROWSER_CHANNEL || undefined,
     locale: 'pt-BR',
     headless: true,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     screenshot: 'on',
-    video: 'off'
+    video: 'off',
+    userAgent:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
   },
   expect: {
     timeout: 30000
@@ -27,4 +29,5 @@ const config: PlaywrightTestConfig = {
     ]
   ]
 };
+
 export default config;
